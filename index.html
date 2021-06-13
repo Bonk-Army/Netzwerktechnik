@@ -173,6 +173,66 @@
 		<section>
 			<h1>Statisches Routing</h1>
 		</section>
+		<section>
+			<h3>Grundlegende Funktionsweise des Statischen Routings</h3>
+			<ul>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+			</ul>
+		</section>
+		<section>
+			<section>
+				<h1>Beispiel : Statischen Routen</h1>
+				<img height="600px" src="ressources/images/StatischesRouting/StatischesRouting.png">
+			</section>
+			<section>
+				<h2>Einrichten einer Statischen Route am Beispielrouter A</h2>
+				Die aktuelle Routing Tabelle kann mit diesem Befehl angesehen werden <br>
+				<pre>
+					<code data-trim data-noescape>
+						ip route show
+			  		</code>
+				</pre>
+				Sample Output <br>
+				<pre>
+					<code data-trim data-noescape>
+						192.168.2.0/24 dev eth1 proto kernel  scope link  src 192.168.2.1
+						192.168.1.0/24 dev eth0  proto kernel  scope link  src 192.168.1.2
+						default via 192.168.1.254 dev eth0
+			  		</code>
+				</pre>
+			</section>
+			<section>
+				<h2>Einrichten einer Statischen Route am Beispielrouter A</h2>
+				Eine statische Route kann mit den Befehl angelegt werden <br>
+				<pre>
+					<code data-trim data-noescape>
+						ip route add {NETWORK} via {IP} dev {DEVICE}
+			  		</code>
+				</pre> <br>
+				Konkretes Beispiel
+				<pre>
+					<code data-trim data-noescape>
+						ip route add 192.168.55.0/24 via 192.168.1.254 dev eth1
+			  		</code>
+				</pre>
+				Hierbei wird das Netzwerk <b>192.168.55.0/24</b> über die Adresse <b>192.168.1.254</b> über den Adapter <b>eth1</b> erreichbar gemacht
+				<br>
+				<br>
+				Somit sollten wir mit folgendem Befehl auf Router A eine statische Route zu Router B einrichten
+				<pre>
+					<code data-trim data-noescape>
+						IN DIE BILDER MÜSSEN IPS FUCK
+			  		</code>
+				</pre>
+				</section>
+			<section>
+				<h1>Error beim Statischen Routing</h1>
+				<img height="600px" src="ressources/images/StatischesRouting/StatischesRoutingError1.png">
+			</section>
+		</section>
 	</div>
 	<div class="slides" id="Dynamisches Routing">
 		<section>
@@ -310,7 +370,7 @@
 				<h2>Router LSA - Aufbau</h2>
 				<u>Wie identifizieren wir einen Link ?</u> <br>
 				<ul>
-					<li>Mit Hilfe des IP Prexif auf dem Interface</li>
+					<li>Mit Hilfe des IP Prefix auf dem Interface</li>
 					<li>Mit Hilfe des Link Types</li>
 					<ul>
 						<li> Es gibt 4 verschiedene Link Typen <br>
