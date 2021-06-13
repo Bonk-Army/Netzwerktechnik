@@ -138,24 +138,23 @@
 				<ol>
 					<li>Einführung</li>
 					<li>Beispiel einer statischen Routingtabelle</li>
-					<li>Ziele</li>
-				</ol>
-				<li>Praxisbeispiel - Einrichtung einer statischen Route zwischen Linux VMs</li>
-				<ol>
-					<li>Grundaufbau</li>
-					<li>Konfiguration</li>
+					<li>Vor-/Nachteile</li>
 				</ol>
 				<li>Dynamisches Routing</li>
 				<ol>
-					<li>Einführung</li>
+					<li>Was ist dynamisches Routing</li>
 					<li>Erstellungsprozess einer dynamischen Routingtabelle anhand eines Beispiels</li>
-					<li>Ziele</li>
+					<li>Vor-/Nachteile</li>
 				</ol>
-				<li>Das Routing Protokoll RIP</li>
-				<ol>
-					<li>Was beschreibt das Protokoll RIP</li>
-					<li>Wie funktioniert das Protokoll RIP</li>
-				</ol>
+				<li>Das Routing Protokoll im Vergleich - RIP vs. OSPF</li>
+					<ol>
+						<li>Erläuterung RIP</li>
+						<li>Erläuterung OSPF</li>
+						<ol>
+							<li>Austauschformat LSA</li>
+						</ol>
+						<li>Routingprotokolle im Vergleich</li>
+					</ol>
 				<li>Resümee</li>
 			</ol>
 		</section>
@@ -171,40 +170,293 @@
     (_______/(______/ \_______/   )_(     |/     \|(_______/
     -->
 	<div class="slides" id="Statisches Routing">
-	</div>
-	<div class="slides" id="Praktisches Beispiel">
+		<section>
+			<h1>Statisches Routing</h1>
+		</section>
 	</div>
 	<div class="slides" id="Dynamisches Routing">
+		<section>
+			<h1>Dynamisches Routing</h1>
+		</section>
 	</div>
-	<div class="slides" id="Protokoll RIP">
+	<div class="slides" id="Routing-Protokolle im Vergleich">
+		<section>
+			<h1>Routing-Protokolle im Vergleich</h1>
+			<h1>RIP vs. OSPF</h1>
+		</section>
+		<section>
+			<section>
+				<h1>Routingprotokoll - RIP</h1>
+				<h3><u>R</u>outing <u>I</u>nternet <u>P</u>rotocol</h3>
+				<aside class="notes">
+					<a href="https://www.ip-insider.de/was-ist-rip-routing-information-protocol-a-905654/">Help Me</a>
+				</aside>
+			</section>
+			<section>
+				<h3>Grundsätzliches</h3>
+				<ul>
+					<li>RIP ist ein Distance - Vektor - Protocol</li>
+					<ul>
+						<li>bestimmen Erreichbarkeit eines Ziels mithilfe eines Vektors</li>
+						<li>Aufteilung des Vektors in </li>
+						<ol>
+							<li>Informationen über die Richtung (Routinginterface zum nächsten Hop)</li>
+							<li>Entfernung (Anzahl der Hops)</li>
+						</ol>
+						<li>Vektor wird an andere Router verschickt</li>
+					</ul>
+					<li>RIP ist ein Interior-Gateway-Protokoll für Routing <b>IN</b> einer Domäne</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Funktionsweise von RIP</h3>
+				<ul>
+					<li>Zu Beginn kennt Router nur seine direkten Nachbarn</li>
+					<li>=> Sendet diesen seine Routingtabelle</li>
+					<li>Durch diesen Austausch entsteht im Router eine Routingtabelle</li>
+					<li>Wiederholung in regelmäßigen Abständen</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Paketaufbau in Wireshark</h1>
+				<img height="590px" src="ressources/RIP/RIP.png"> <br>
+				Hierbei wurde der PCAP "RIPv2" verwendet dieser ist <a href="">HIER</a> zu finden.
+				<aside class="notes">
+					<a href="https://packetlife.net/captures/">Help Me</a>
+				</aside>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h1>Routingprotokoll - OSPF</h1>
+				<h3><u>O</u>pen <u>S</u>hortest <u>P</u>ath <u>F</u>irst</h3>
+				<aside class="notes">
+					<a href="https://www.ip-insider.de/was-ist-ospf-open-shortest-path-first-a-905626/">Help Me</a>
+				</aside>
+			</section>
+			<section>
+				<h3>Grundsätzliches</h3>
+				<ul>
+					<li>OSPF ist ein Link-State-Protokoll</li>
+					<ul>
+						<li>Router tauschen untereinander Link-State-Informationen aus</li>
+						<ul>
+							<li>=> daraus kann eine Topologie-Datenbank des Netzwerks aufgebaut werden</li>
+						</ul>
+						<li>Ausgehend dieser Datenbank kann jeder Router die kürzeste Route <b>SELBST</b> bestimmen</li>
+						<ul>
+							<li>=> Verschiedene Algorithmen zur Bestimmung denkbar (Dijkstra)</li>
+						</ul>
+						<li>Aus diesen Informationen wird eine Routingtabelle zusammen gestellt</li>
+					</ul>
+					<li>OSPF ist ein Interior-Gateway-Protokoll für Routing <b>IN</b> einer Domäne</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Funktionsweise von OSPF</h3>
+				<ul>
+					<li>Zentrales Element : <b>Topologie Datenbank</b></li>
+					<ul>
+						<li>=> Aufbau aus den Daten, welche die Router austauschen</li>
+						<li>=> Daten beinhalten die lokale Sicht des Routers auf das Netzwerk</li>
+						<li>=> incl. Routerinterfaces der erreichbaren Nachbarn an <b>alle</b> Router im Netz</li>
+					</ul>
+					<li>Auf Basis der Topologie Datenbank wird mit Hilfe eines Algorithmus der kürzeste Weg berechnet</li>
+					<ul>
+						<li>=> Aus diesen Daten wird die Routingtabelle erstellt</li>
+					</ul>
+				</ul>
+			</section>
+			<section>
+				<h1>Paketaufbau in Wireshark</h1>
+				<img height="590px" src="ressources/LSA/OSPFUpdate.png"> <br>
+				Hierbei wurde der PCAP "OSPF_LSA_types.cap" verwendet dieser ist <a href="">HIER</a> zu finden.
+				<aside class="notes">
+					<a href="https://packetlife.net/captures/">Help Me</a>
+				</aside>
+			</section>
+			<section>
+				<h1>Austauschformat</h1>
+				<h3>Link State Advertisements</h3>
+			</section>
+			<section>
+				<h3>Austauschformat</h3>
+				LSAs abhängig von Routertypen und Netzbereichen <br>
+				<p>
+					<ol>
+						<li>Type : Router LSA</li>
+						<li>Type : Network LSA</li>
+						<li>Type : Summary LSA</li>
+						<li>Type : Summary ASBR LSA</li>
+						<li>Type : Autonomous system external LSA</li>
+						<li>Type : Multicast LSA</li>
+						<li>Type : Not-so-stubby area LSA</li>
+						<li>Type : External attribute LSA for BGP</li>
+					</ol>
+				</p>
+				<p>
+					<a href="https://networklessons.com/ospf/ospf-lsa-types-explained">Weiterführende Informationen</a>
+				</p>
+			</section>
+			<section>
+				<h2>Router LSA</h2>
+				<img src="./ressources/LSA/lsa.png">
+				<p>
+					Jeder Router im Netzwerk sendet ein <b>type 1 router LSA</b> im Netzwerk. <br>
+					In dieser LSA ist eine Liste aller direkt verbundenen Links des aktuellen Routers enthalten.
+				</p>
+			</section>
+			<section>
+				<h2>Router LSA - Aufbau</h2>
+				<u>Wie identifizieren wir einen Link ?</u> <br>
+				<ul>
+					<li>Mit Hilfe des IP Prexif auf dem Interface</li>
+					<li>Mit Hilfe des Link Types</li>
+					<ul>
+						<li> Es gibt 4 verschiedene Link Typen <br>
+							<table>
+								<thead>
+								<th>Link Type</th>
+								<th>Description</th>
+								<th>Link ID</th>
+								</thead>
+								<tr>
+									<td>1</td>
+									<td>Point-to-point connection to another router.</td>
+									<td>Neighbor router ID</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Connection to transit network.</td>
+									<td>IP address of DR</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Connection to stub network.</td>
+									<td>IP Network</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Virtual Link</td>
+									<td>Neighbor router ID</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</ul>
+			</section>
+			<section>
+				<h1>Paketaufbau in Wireshark - LSA 1</h1>
+				<img height="590px" src="ressources/LSA/LSA1.png"> <br>
+				Hierbei wurde der PCAP "OSPF_LSA_types.cap" verwendet dieser ist <a href="">HIER</a> zu finden.
+				<aside class="notes">
+					<a href="https://packetlife.net/captures/">Help Me</a>
+				</aside>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h1>Routingprotokoll im Vergleich</h1>
+			</section>
+			<section>
+				<h3>Abgrenzung von RIP zu OSPF</h3>
+				<ul>
+					<li>RIP ist ein Link-State-Protokoll</li>
+					<li>"einfaches" Routingprotokoll für kleinere Netze</li>
+					<li>Routingtabellen verursachen bei großen Netzwerken viel Daten-Traffic</li>
+					<li>Lange Konvergenz bei Routenänderungen (im Minutenbereich)</li>
+					<li>keine Schleifenfreiheit gegeben</li>
+				</ul>
+				<aside class="notes">
+					<a href="https://www.ip-insider.de/was-ist-ospf-open-shortest-path-first-a-905626/">Help Me</a>
+					<br>
+					Im Gegensatz zu OSPF ist RIP ein Distance-Vector-Protokoll. Es handelt sich um ein sehr einfaches Routingprotokoll, das in kleineren Netzwerken zum Einsatz kommt. RIP speichert in seiner Routingtabelle die Zieladresse, das zugehörige abgehende Routerinterface und die Anzahl der Hops bis zum Ziel.
+					<br>
+					Diese Infos versendet der Router in festen regelmäßigen Abständen an alle weiteren benachbarten Router des Netzwerks. Je größer das Netz und je mehr Router vorhanden sind, desto größer ist der durch RIP verursachte Datenverkehr. Fällt eine Verbindung oder eine Route aus, kann es relativ lange dauern, bis sich die Information im Netzwerk verteilt hat.
+					<br>
+					Darüber hinaus kann RIP keine Routing-Schleifenfreiheit sicherstellen, da jeder Router nur die Vektoren zum Ziel und nicht die Topologie des Netzwerks kennt. OSPF-Router hingegen kennen die Netztopologie und können beste Wege zu einem Ziel nicht nur auf Basis von Hops, sondern auch unter Berücksichtigung weiterer Netzwerkinformationen wie Kosten und Bandbreiten bestimmen.
+					<br>
+				</aside>
+			</section>
+			<section>
+				<h3>Abgrenzung von OSPF zu RIP</h3>
+				<ul>
+					<li>eignet sich für größere Netze</li>
+					<li>schnelle Konvergenz</li>
+					<li>hierarchische Topologien werden erfasst</li>
+					<li>Metriken wie Brandbreiten, Auslastung oder Kosten werden berücksichtigt</li>
+					<li>verhindert Routingschleifen</li>
+					<li>Austausch der Routinginformationen benötigt wenig Bandbreite</li>
+				</ul>
+				<aside class="notes">
+					<a href="https://www.ip-insider.de/was-ist-rip-routing-information-protocol-a-905654/">Help Me</a>
+					<br>
+					Im Gegensatz zu RIP ist OSPF (Open Shortest Path First) ein Link-State-Protokoll. OSPF eignet sich auch für größere Netze, erlaubt hierarchische Topologien und bietet eine schnelle Konvergenz. Die Router kennen jeweils die komplette Topologie des Netzwerks und können selbst beste Wege zu einem Ziel basierend auf unterschiedlichen Metriken wie Bandbreiten, Auslastung oder Kosten bestimmen. Open Shortest Path First verhindert Routingschleifen und benötigt selbst in großen Netzen nur wenig Bandbreite für den Austausch der Routinginformationen.
+					<br>
+				</aside>
+			</section>
+			<section>
+				<h1>Vergleich beider Interior-Gateway-Protokolle</h1>
+			</section>
+			<section>
+				<table style="margin-top: 77px;text-align: center">
+					<thead>
+						<th>Vergleichspunkt</th>
+						<th>RIP</th>
+						<th>OSP</th>
+					</thead>
+					<tr>
+						<td>Netzgröße</td>
+						<td>für kleine Netze geeignet</td>
+						<td>für große Netzwerke geeignet</td>
+					</tr>
+					<tr>
+						<td>Netzwerktopologie</td>
+						<td>wird nicht erfasst</td>
+						<td>erfasst die Netzwerktopologie</td>
+					</tr>
+					<tr>
+						<td>Konvergenz</td>
+						<td>sehr langsam</td>
+						<td>schnell</td>
+					</tr>
+					<tr>
+						<td>Routenberechnung</td>
+						<td>auf Basis der Routingtabelle mit <br>Hilfe von Nachbarn</td>
+						<td>in Router selbst auf Basis der Topologie DB</td>
+					</tr>
+					<tr>
+						<td>Routenberechnung (Algorithmus)</td>
+						<td>-</td>
+						<td>viele unterschiedliche Algorithmen denkbar</td>
+					</tr>
+					<tr>
+						<td>Einfluss von Metriken</td>
+						<td>-</td>
+						<td>Einfluss von Bandbreite, Auslastung <br>oder Kosten denkbar</td>
+					</tr>
+					<tr>
+						<td>Routingschleifen</td>
+						<td>werden nicht verhindert</td>
+						<td>aktive Verhinderung</td>
+					</tr>
+					<tr>
+						<td>Bandbreite beim Austausch <br>	der Routinginformationen</td>
+						<td>skaliert Exponentiell mit Netzgröße</td>
+						<td>gering</td>
+					</tr>
+				</table>
+			</section>
+		</section>
 	</div>
 	<div class="slides" id="Resümee">
-	</div>
-	<div class="slides" id="Handout">
-		<!-- Print it -->
-		<section>
-			<script>
-				let print = (doc) => {
-					let objFra = document.createElement('iframe');     // Create an IFrame.
-					objFra.style.visibility = 'hidden';                // Hide the frame.
-					objFra.src = doc;                   // Set source.
-					document.body.appendChild(objFra);  // Add the frame to the web page.
-					objFra.contentWindow.focus();       // Set focus.
-					objFra.contentWindow.print();       // Print it.
-				}
-			</script>
-			<h2>Handout</h2>
-			<button type="button" class="btn btn-primary btn-lg" onclick="print('ressources/Handout.pdf')">Drucke Handout</button>
-		</section>
 	</div>
 	<div class="slides" id="endslide">
 		<section>
 			<h1>Vielen Dank für eure  <br> Aufmerksamkeit! ❤️</h1>
 			<br>
-			<p>Hier könnt ihr unser Handout herunterladen : <a href="https://github.com/Unk3wn/TaskHub---Codebase/blob/master/docs/ressources/Handout.pdf">Click me!</a> </p>
-			<br>
-			<br>
 			<p>Schaut auch gerne in unseren <a target="_blank" href="https://github.com/Unk3wn/Netzwerktechnik/master/index.html">Presentation - Code</a> und <a target="_blank" href="https://revealjs.com/">reveal.js</a></p>
+			<p>Alle Wireshark PCAPs sind <a href="">HIER</a> zu finden und haben ihren Ursprung bei <a href="https://packetlife.net/captures/category/routing-protocols">PacketLife</a> </p>
 		</section>
 	</div>
 	<!-- NO CHANGING AFTER HERE -->
