@@ -219,8 +219,8 @@
 			</section>
 			<section>
 				<h1>Paketaufbau in Wireshark</h1>
-				<img height="590px" src="ressources/RIP/RIP.png"> <br>
-				Hierbei wurde der PCAP "RIPv2" verwendet dieser ist <a href="">HIER</a> zu finden.
+				<img height="590px" src="ressources/images/RIP/RIP.png"> <br>
+				Hierbei wurde der PCAP "RIPv2" verwendet dieser ist <a href="https://github.com/Unk3wn/Netzwerktechnik/tree/master/ressources/PCAP/RIP">HIER</a> zu finden.
 				<aside class="notes">
 					<a href="https://packetlife.net/captures/">Help Me</a>
 				</aside>
@@ -269,8 +269,8 @@
 			</section>
 			<section>
 				<h1>Paketaufbau in Wireshark</h1>
-				<img height="590px" src="ressources/LSA/OSPFUpdate.png"> <br>
-				Hierbei wurde der PCAP "OSPF_LSA_types.cap" verwendet dieser ist <a href="">HIER</a> zu finden.
+				<img height="590px" src="ressources/images/LSA/OSPFUpdate.png"> <br>
+				Hierbei wurde der PCAP "OSPF_LSA_types.cap" verwendet dieser ist <a href="https://github.com/Unk3wn/Netzwerktechnik/tree/master/ressources/PCAP/OSPF">HIER</a> zu finden.
 				<aside class="notes">
 					<a href="https://packetlife.net/captures/">Help Me</a>
 				</aside>
@@ -300,7 +300,7 @@
 			</section>
 			<section>
 				<h2>Router LSA</h2>
-				<img src="./ressources/LSA/lsa.png">
+				<img src="./ressources/images/LSA/lsa.png">
 				<p>
 					Jeder Router im Netzwerk sendet ein <b>type 1 router LSA</b> im Netzwerk. <br>
 					In dieser LSA ist eine Liste aller direkt verbundenen Links des aktuellen Routers enthalten.
@@ -347,8 +347,8 @@
 			</section>
 			<section>
 				<h1>Paketaufbau in Wireshark - LSA 1</h1>
-				<img height="590px" src="ressources/LSA/LSA1.png"> <br>
-				Hierbei wurde der PCAP "OSPF_LSA_types.cap" verwendet dieser ist <a href="">HIER</a> zu finden.
+				<img height="590px" src="ressources/images/LSA/lsa1.png"> <br>
+				Hierbei wurde der PCAP "OSPF_LSA_types.cap" verwendet dieser ist <a href="https://github.com/Unk3wn/Netzwerktechnik/tree/master/ressources/PCAP/OSPF">HIER</a> zu finden.
 				<aside class="notes">
 					<a href="https://packetlife.net/captures/">Help Me</a>
 				</aside>
@@ -411,39 +411,39 @@
 						<td>für große Netzwerke geeignet</td>
 					</tr>
 					<tr>
+						<td>Komplexität</td>
+						<td>👍 rudimentär</td>
+						<td>👎 komplex</td>
+					</tr>
+					<tr>
 						<td>Netzwerktopologie</td>
-						<td>wird nicht erfasst</td>
-						<td>erfasst die Netzwerktopologie</td>
+						<td>👎 wird nicht erfasst</td>
+						<td>👍 erfasst die Netzwerktopologie</td>
 					</tr>
 					<tr>
 						<td>Konvergenz</td>
-						<td>sehr langsam</td>
-						<td>schnell</td>
-					</tr>
-					<tr>
-						<td>Routenberechnung</td>
-						<td>auf Basis der Routingtabelle mit <br>Hilfe von Nachbarn</td>
-						<td>in Router selbst auf Basis der Topologie DB</td>
+						<td>👎 sehr langsam</td>
+						<td>👍 schnell</td>
 					</tr>
 					<tr>
 						<td>Routenberechnung (Algorithmus)</td>
-						<td>-</td>
-						<td>viele unterschiedliche Algorithmen denkbar</td>
+						<td>👎 -</td>
+						<td>👍 viele unterschiedliche Algorithmen denkbar</td>
 					</tr>
 					<tr>
 						<td>Einfluss von Metriken</td>
-						<td>-</td>
-						<td>Einfluss von Bandbreite, Auslastung <br>oder Kosten denkbar</td>
+						<td>👎 -</td>
+						<td>👍 Einfluss von Bandbreite, Auslastung <br>oder Kosten denkbar</td>
 					</tr>
 					<tr>
 						<td>Routingschleifen</td>
-						<td>werden nicht verhindert</td>
-						<td>aktive Verhinderung</td>
+						<td>👎 werden nicht verhindert</td>
+						<td>👍 aktive Verhinderung</td>
 					</tr>
 					<tr>
 						<td>Bandbreite beim Austausch <br>	der Routinginformationen</td>
-						<td>skaliert Exponentiell mit Netzgröße</td>
-						<td>gering</td>
+						<td>👎 skaliert Exponentiell mit Netzgröße</td>
+						<td>👍 gering</td>
 					</tr>
 				</table>
 			</section>
@@ -456,7 +456,7 @@
 			<h1>Vielen Dank für eure  <br> Aufmerksamkeit! ❤️</h1>
 			<br>
 			<p>Schaut auch gerne in unseren <a target="_blank" href="https://github.com/Unk3wn/Netzwerktechnik/master/index.html">Presentation - Code</a> und <a target="_blank" href="https://revealjs.com/">reveal.js</a></p>
-			<p>Alle Wireshark PCAPs sind <a href="">HIER</a> zu finden und haben ihren Ursprung bei <a href="https://packetlife.net/captures/category/routing-protocols">PacketLife</a> </p>
+			<p>Alle Wireshark PCAPs sind <a href="https://github.com/Unk3wn/Netzwerktechnik/tree/master/ressources/PCAP">HIER</a> zu finden und haben ihren Ursprung bei <a href="https://packetlife.net/captures/category/routing-protocols">PacketLife</a> </p>
 		</section>
 	</div>
 	<!-- NO CHANGING AFTER HERE -->
