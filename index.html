@@ -221,13 +221,27 @@
 				Hierbei wird das Netzwerk <b>192.168.55.0/24</b> über die Adresse <b>192.168.1.254</b> über den Adapter <b>eth1</b> erreichbar gemacht
 				<br>
 				<br>
-				Somit sollten wir mit folgendem Befehl auf Router A eine statische Route zu Router B einrichten
+				Somit sollen die entfernten Netze erreichbar gemacht werden
+
+			</section>
+			<section>
+				<h2>Beispiel am Router A</h2>
+				<img src="ressources/images/StatischesRouting/StatischesRoutingMehrRouter.png">
 				<pre>
 					<code data-trim data-noescape>
-						IN DIE BILDER MÜSSEN IPS FUCK
+						A : ip route add 10.10.30.0/24 via 172.16.250.2 dev eth1
+						A : ip route add 10.10.20.0/24 via 172.16.250.2 dev eth1
 			  		</code>
 				</pre>
-				</section>
+			</section>
+			<section>
+				<h2>Konkrete Problemstellung</h2>
+				<img height="20%" src="ressources/images/StatischesRouting/StatischesRoutingMehrRouterFragestellungOhneLoesung.png">
+			</section>
+			<section>
+				<h2>Konkrete Problemstellung - Lösung</h2>
+				<img height="20%" src="ressources/images/StatischesRouting/StatischesRoutingMehrRouterFragestellung.png">
+			</section>
 			<section>
 				<h1>Error beim Statischen Routing</h1>
 				<img height="600px" src="ressources/images/StatischesRouting/StatischesRoutingError1.png">
@@ -237,6 +251,24 @@
 	<div class="slides" id="Dynamisches Routing">
 		<section>
 			<h1>Dynamisches Routing</h1>
+		</section>
+		<section>
+			<h3>Grundlegende Funktionsweise des Dynamischen Routings</h3>
+			<ul>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+			</ul>
+		</section>
+		<section>
+			<h3>Grundlegende Funktionsweise des Dynamischen Routings</h3>
+			<ul>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+				<li>a</li>
+			</ul>
 		</section>
 	</div>
 	<div class="slides" id="Routing-Protokolle im Vergleich">
