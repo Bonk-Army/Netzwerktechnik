@@ -245,6 +245,31 @@
 				<img height="600px" src="ressources/images/StatischesRouting/StatischesRoutingError1.png">
 			</section>
 		</section>
+		<section>
+			<h3>Vor-/Nachteile von Statischem Routing</h3>
+			<table>
+				<thead>
+					<td>Vorteile</td>
+					<td>Nachteile</td>
+				</thead>
+				<tr>
+					<td>In kleinen Netzen leicht konfigurierbar</td>
+					<td>Schwere Einrichtung bei größeren Netzen</td>
+				</tr>
+				<tr>
+					<td>Kein "Overhead" von Routing Protokollen</td>
+					<td>Routing Loops</td>
+				</tr>
+				<tr>
+					<td>Leicht auf Subnetze zu konfigurieren</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Sicher</td>
+					<td></td>
+				</tr>
+			</table>
+		</section>
 	</div>
 	<div class="slides" id="Dynamisches Routing">
 		<section>
@@ -319,6 +344,31 @@
 				<h3>Beispiel: Dynamisches Routing 2</h3>
 				<img src="ressources/images/DynamischesRouting/DynamischesRoutingWithGewichtungBEISPIEL_E.png">
 			</section>
+		</section>
+		<section>
+			<h3>Vor-/Nachteile von Dynamischem Routing</h3>
+			<table>
+				<thead>
+				<td>Vorteile</td>
+				<td>Nachteile</td>
+				</thead>
+				<tr>
+					<td>Leicht skalierbar</td>
+					<td>Erfordert erstmalige Konfiguration</td>
+				</tr>
+				<tr>
+					<td>Keine manuelle "Definition" der Routen</td>
+					<td>Rechenintensiv</td>
+				</tr>
+				<tr>
+					<td>Neue Routen werden automatisch hinzugefügt</td>
+					<td>variierende Konvergenzzeiten</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>Sicherheitsproblem</td>
+				</tr>
+			</table>
 		</section>
 	</div>
 	<div class="slides" id="Routing-Protokolle im Vergleich">
@@ -617,16 +667,16 @@
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
 		});
 		Reveal.on( 'slidechanged', event => {
-			if(event.indexh == 3 || event.indexh == 13 && event.indexv < 1 || event.indexh == 13 && event.indexv > 3){
+			if(event.indexh == 3 || event.indexh == 15 && event.indexv > 2){
 				document.getElementById("persons").innerHTML = lisaIcon;
 			}
-			if(event.indexh == 6){
+			if(event.indexh == 7){
 				document.getElementById("persons").innerHTML = nicoIcon;
 			}
-			if(event.indexh == 10 || event.indexh == 13 && event.indexv == 1){
+			if(event.indexh == 12 || event.indexh == 15 && event.indexv < 2){
 				document.getElementById("persons").innerHTML = dannyIcon;
 			}
-			if(event.indexh == 12 || event.indexh == 13 && event.indexv == 2){
+			if(event.indexh == 14 || event.indexh == 15 && event.indexv == 2){
 				document.getElementById("persons").innerHTML = paulicon;
 			}
 		});
