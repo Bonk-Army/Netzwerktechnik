@@ -155,7 +155,6 @@
 						</ol>
 						<li>Routingprotokolle im Vergleich</li>
 					</ol>
-				<li>Resümee</li>
 			</ol>
 		</section>
 	</div>
@@ -592,8 +591,6 @@
 			</section>
 		</section>
 	</div>
-	<div class="slides" id="Resümee">
-	</div>
 	<div class="slides" id="endslide">
 		<section>
 			<h1>Vielen Dank für eure  <br> Aufmerksamkeit! ❤️</h1>
@@ -620,8 +617,17 @@
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
 		});
 		Reveal.on( 'slidechanged', event => {
-			if(event.indexh == 1 || event.indexh == 1 && event.indexv == 1){
+			if(event.indexh == 3 || event.indexh == 13 && event.indexv < 1 || event.indexh == 13 && event.indexv > 3){
 				document.getElementById("persons").innerHTML = lisaIcon;
+			}
+			if(event.indexh == 6){
+				document.getElementById("persons").innerHTML = nicoIcon;
+			}
+			if(event.indexh == 10 || event.indexh == 13 && event.indexv == 1){
+				document.getElementById("persons").innerHTML = dannyIcon;
+			}
+			if(event.indexh == 12 || event.indexh == 13 && event.indexv == 2){
+				document.getElementById("persons").innerHTML = paulicon;
 			}
 		});
 	</script>
