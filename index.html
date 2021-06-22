@@ -107,7 +107,7 @@
 		23.06.2021 <br>
 		Lisa Kletsko & Nico Holzh&aumluser & Danny Kroll & Paul Wolf
 	</div>
-	<div id="persons" class="persons"><script>document.write(nicoIcon)</script></div>
+	<div id="persons" class="persons"><script>document.write(lisaIcon)</script></div>
 	<!-- Slides -->
 	<div class="slides" id="organisatorisches">
 		<!-- Introduction -->
@@ -562,6 +562,7 @@
 			<section>
 				<h1>Routingprotokoll im Vergleich</h1>
 			</section>
+			<!--
 			<section>
 				<h3>Abgrenzung von RIP zu OSPF</h3>
 				<ul>
@@ -602,6 +603,7 @@
 			<section>
 				<h1>Vergleich beider Interior-Gateway-Protokolle</h1>
 			</section>
+			-->
 			<section>
 				<table style="margin-top: 77px;text-align: center">
 					<thead>
@@ -682,13 +684,13 @@
 			if(event.indexh == 3 || event.indexh == 15 && event.indexv > 2){
 				document.getElementById("persons").innerHTML = lisaIcon;
 			}
-			if(event.indexh == 7){
+			if(event.indexh == 8){
 				document.getElementById("persons").innerHTML = nicoIcon;
 			}
-			if(event.indexh == 12 || event.indexh == 15 && event.indexv < 2){
+			if(event.indexh == 13 || event.indexh == 16 && event.indexv < 2){
 				document.getElementById("persons").innerHTML = dannyIcon;
 			}
-			if(event.indexh == 14 || event.indexh == 15 && event.indexv == 2){
+			if(event.indexh == 15 || event.indexh == 16 && event.indexv == 2){
 				document.getElementById("persons").innerHTML = paulicon;
 			}
 		});
