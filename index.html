@@ -58,6 +58,10 @@
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
 
+	<!-- Drawer -->
+	<script src="plugin/drawer/drawer.js"></script>
+	<link rel="stylesheet" href="plugin/drawer/drawer.css" />
+
 	<!-- Bootstrap-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -664,7 +668,7 @@
 			hash: true,
 			showNotes: "true",
 			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes,RevealDrawer]
 		});
 		Reveal.on( 'slidechanged', event => {
 			if(event.indexh == 3 || event.indexh == 15 && event.indexv > 2){
