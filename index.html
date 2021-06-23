@@ -101,6 +101,10 @@
 		h1,h2,h3,h4,h5,h6{
 			padding-top: 2%;
 		}
+		.li__main--topic {
+			color: #e74c3c;
+			font-weight: bold;
+		}
 	</style>
 	<div class='footer'>
 		TINF19B4 <br>
@@ -134,19 +138,19 @@
 		<section>
 			<h2 style="padding-top: 1%">Inhalt</h2>
 			<ol type="1" style="font-size:60%;">
-				<li>Statisches Routing</li>
+				<li class="li__main--topic">Statisches Routing</li>
 				<ol>
 					<li>Einführung</li>
 					<li>Beispiel einer statischen Routingtabelle</li>
 					<li>Vor-/Nachteile</li>
 				</ol>
-				<li>Dynamisches Routing</li>
+				<li class="li__main--topic">Dynamisches Routing</li>
 				<ol>
 					<li>Was ist dynamisches Routing</li>
 					<li>Erstellungsprozess einer dynamischen Routingtabelle anhand eines Beispiels</li>
 					<li>Vor-/Nachteile</li>
 				</ol>
-				<li>Das Routing Protokoll im Vergleich - RIP vs. OSPF</li>
+				<li class="li__main--topic">Das Routing Protokoll im Vergleich - RIP vs. OSPF</li>
 					<ol>
 						<li>Erläuterung RIP</li>
 						<li>Erläuterung OSPF</li>
@@ -171,7 +175,6 @@
 	<div class="slides" id="refresher">
 		<section>
 			<h1>Was ist eigentlich Routing &#128118; ?</h1>
-			<h3>&#x1F5FA; Routing vs Forwarding &#128232; </h3>
 		</section>
 	</div>
 	<div class="slides" id="Statisches Routing">
@@ -179,7 +182,7 @@
 			<h1>Statisches Routing</h1>
 		</section>
 		<section>
-			<h3>Grundlegende Funktionsweise des Statischen Routings</h3>
+			<h3 style="color: #e74c3c;">Grundlegende Funktionsweise des Statischen Routings</h3>
 			<ul>
 				<li>Vorher festgelegte Routen werden verfolgt</li>
 				<li>Abweichungen im Standard nicht vorhergesehen</li>
@@ -288,7 +291,7 @@
 			<h1>Dynamisches Routing</h1>
 		</section>
 		<section>
-			<h3>Grundlegende Funktionsweise des Dynamischen Routings</h3>
+			<h3  style="color: #e74c3c;">Grundlegende Funktionsweise des Dynamischen Routings</h3>
 			<ul>
 				<li>Routingtabellen werden an weitere Router ausgetauscht</li>
 				<li>Dynamische Erstellung der <b>kürzesten</b> Route durch diese gesendeten Routingtabellen</li>
